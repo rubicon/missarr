@@ -16,7 +16,15 @@ missarr sends search requests for missing episodes to Sonarr
 
 ## Installing missarr
 
-missarr offers [pre-compiled binaries](https://github.com/l3uddz/missarr/releases/latest) for Linux, MacOS and Windows for each official release.
+missarr offers [pre-compiled binaries](https://github.com/l3uddz/missarr/releases/latest) for Linux, macOS and Windows for each official release.
+
+Example install (installing to /opt/missarr on linux amd64):
+````
+cd /opt
+mkdir missarr && cd missarr
+curl -fLvo missarr https://github.com/jolbol1/missarr/releases/download/v1.2.0/missarr_v1.2.0_linux_amd64
+chmod +x missarr
+````
 
 Alternatively, you can build the Missarr binary yourself.
 To build missarr on your system, make sure:
@@ -26,7 +34,7 @@ To build missarr on your system, make sure:
 3. Clone this repository and cd into it from the terminal
 4. Run `make build` from the terminal
 
-You should now have a binary with the name `missarr` in the appropriate dist sub-directory of the project.
+You should now have a binary with the name `missarr` in the appropriate dist subdirectory of the project.
 
 If you need to debug certain Missarr behaviour, either add the `-v` flag for debug mode or the `-vv` flag for trace mode to get even more details about internal behaviour.
 
@@ -41,7 +49,7 @@ radarr:
   api_key: your_api_key
 ```
 
-If you are experiencing timeouts while retrieving data from your PVR, you can add the `timeout` config option which currently defaults to `90` (seconds).
+If you are experiencing timeouts while retrieving data from your PVR, you can add the `timeout` config option, which currently defaults to `90` (seconds).
 
 You can place this config file in the same folder as the missarr binary as `config.yml`
 
@@ -58,6 +66,9 @@ Search for 10 seasons (without updating seasons cache) `missarr sonarr --limit 1
 Search for 10 movies: `missarr radarr --limit 10`
 
 Search for 10 movies (without updating movies cache) `missarr radarr --limit 10 --skip-refresh`
+
+Search for 10 movies with cutoff unmet: `missarr radarr --limit 10 --cutoff`
+
 
 ## Donate
 
